@@ -729,7 +729,23 @@
   </pre>
   <h1>Number 31</h1>
   <pre>
-    <code class = "language-cpp">
+    <code class = "language-python">
+      # python
+      coins = [1, 2, 5, 10, 20, 50, 100, 200]
+
+      def get_all_ways(current_value, coin_max, ways):
+          if current_value < 0:
+              return ways
+          for coin in coins:
+              if coin >= coin_max:
+                  this_value = current_value - coin
+                  if this_value == 0:
+                      ways += 1
+                      return ways
+                  else:
+                      ways = get_all_ways(this_value, coin, ways)
+          return ways
+      print(get_all_ways(10, 0, 0))
     </code>
   </pre>
   <h1>Number 32</h1>
